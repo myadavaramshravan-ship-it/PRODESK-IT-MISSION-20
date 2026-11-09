@@ -1,0 +1,83 @@
+:root {
+  color-scheme: light;
+  --ink: #102a43;
+  --muted: #627d98;
+  --line: #d9e2ec;
+  --surface: #fff;
+  --canvas: #f4f7fb;
+  --green: #16805d;
+  --green-dark: #116548;
+  --red: #b42318;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; color: var(--ink); background: var(--canvas); }
+button, input { font: inherit; }
+.topbar { height: 76px; padding: 0 max(5vw, 24px); display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid #e8eef4; }
+.brand { display: flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; font: 800 15px "Segoe UI", Arial, sans-serif; letter-spacing: .07em; }
+.brand small { display: block; color: var(--muted); font: 600 8px "Segoe UI", Arial, sans-serif; letter-spacing: .19em; margin-top: 2px; }
+.brand-mark { width: 37px; height: 37px; display: grid; place-items: center; border-radius: 10px; background: var(--ink); color: #fff; font: 700 20px "Segoe UI", Arial, sans-serif; letter-spacing: 0; }
+.account-actions { display: flex; align-items: center; gap: 17px; color: var(--muted); font-size: 13px; }
+.container { width: min(100% - 40px, 1060px); margin: 0 auto; min-height: calc(100vh - 143px); }
+.auth-panel { min-height: 650px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 80px; }
+.intro h1, .page-heading h1 { font: 800 clamp(35px, 5vw, 52px)/1.12 "Segoe UI", Arial, sans-serif; letter-spacing: -.04em; margin: 12px 0 17px; }
+.intro > p:last-child, .muted { color: var(--muted); font-size: 16px; }
+.eyebrow { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .16em; margin: 0; }
+.auth-card { padding: 30px; background: var(--surface); border: 1px solid #e5ecf2; border-radius: 14px; box-shadow: 0 18px 54px #102a4310; }
+.tabs { display: flex; gap: 22px; border-bottom: 1px solid var(--line); margin: -2px 0 22px; }
+.tab { padding: 0 0 13px; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-weight: 600; }
+.tab.active { color: var(--ink); box-shadow: inset 0 -2px var(--green); }
+label { display: block; margin: 14px 0 7px; font-size: 12px; font-weight: 600; }
+input { width: 100%; height: 44px; padding: 0 12px; color: var(--ink); border: 1px solid var(--line); border-radius: 7px; outline: none; background: white; }
+input:focus { border-color: #5ca68a; box-shadow: 0 0 0 3px #16805d18; }
+input::placeholder { color: #9fb3c8; }
+.button { min-height: 40px; border: 0; border-radius: 7px; padding: 0 16px; cursor: pointer; font-weight: 600; transition: background .15s, transform .15s; }
+.button:hover { transform: translateY(-1px); }
+.button-primary { color: white; background: var(--green); }
+.button-primary:hover { background: var(--green-dark); }
+.full-width { width: 100%; margin-top: 22px; }
+.button-quiet { color: var(--ink); background: transparent; border: 1px solid var(--line); }
+.message { min-height: 17px; margin: 12px 0 0; color: var(--red); font-size: 12px; }
+.message:empty { min-height: 0; }
+.page-heading { display: flex; align-items: center; justify-content: space-between; padding: 56px 0 28px; }
+.page-heading h1 { font-size: 37px; margin: 8px 0; }
+.page-heading .muted { margin: 0; font-size: 14px; }
+.invoice-list { display: grid; gap: 12px; padding-bottom: 60px; }
+.invoice-card { display: grid; grid-template-columns: minmax(200px, 1fr) 140px 130px auto; align-items: center; gap: 20px; padding: 20px 22px; background: #fff; border: 1px solid #e5ecf2; border-radius: 10px; }
+.invoice-title { font-weight: 700; }
+.invoice-number, .invoice-date { color: var(--muted); font-size: 12px; margin-top: 5px; }
+.invoice-amount { font: 700 18px "Segoe UI", Arial, sans-serif; }
+.status { width: fit-content; padding: 6px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+.status-paid { color: #116548; background: #e7f5ef; }
+.status-unpaid { color: #9a6700; background: #fff4d6; }
+.invoice-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.invoice-actions .button { padding: 0 12px; white-space: nowrap; }
+.empty-state { padding: 70px 20px; text-align: center; background: white; border: 1px dashed var(--line); border-radius: 12px; }
+.empty-state h2 { margin-bottom: 8px; font: 700 20px "Segoe UI", Arial, sans-serif; }
+.empty-state p { margin: 0; color: var(--muted); font-size: 14px; }
+.empty-icon { margin: 0 auto 15px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 11px; background: #e8f4ef; color: var(--green); font-size: 22px; }
+.notice { margin-bottom: 18px; padding: 12px 15px; border: 1px solid #b9decf; border-radius: 8px; color: #116548; background: #e7f5ef; font-size: 13px; }
+dialog { width: min(440px, calc(100% - 32px)); padding: 29px; border: 1px solid var(--line); border-radius: 13px; box-shadow: 0 24px 80px #102a4333; }
+dialog::backdrop { background: #102a4370; backdrop-filter: blur(2px); }
+.dialog-heading { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.dialog-heading h2 { margin: 7px 0 0; font: 700 23px "Segoe UI", Arial, sans-serif; }
+.icon-button { width: 30px; height: 30px; border: 0; background: #f0f4f8; color: var(--muted); border-radius: 50%; font-size: 21px; cursor: pointer; }
+.amount-input { position: relative; }
+.amount-input span { position: absolute; left: 12px; top: 12px; color: var(--muted); }
+.amount-input input { padding-left: 27px; }
+.optional { color: var(--muted); font-weight: 400; }
+footer { height: 67px; display: flex; justify-content: center; align-items: center; gap: 9px; border-top: 1px solid #e4ebf2; color: var(--muted); font-size: 11px; }
+[hidden] { display: none !important; }
+
+@media (max-width: 760px) {
+  .auth-panel { min-height: initial; padding: 64px 0; grid-template-columns: 1fr; gap: 34px; }
+  .intro h1 { font-size: 39px; }
+  .page-heading { align-items: flex-end; gap: 12px; }
+  .page-heading h1 { font-size: 30px; }
+  .page-heading .button { padding: 0 11px; font-size: 12px; }
+  .invoice-card { grid-template-columns: 1fr auto; gap: 12px; }
+  .invoice-amount { grid-column: 1; grid-row: 2; }
+  .invoice-card > .status { grid-column: 2; grid-row: 1; justify-self: end; }
+  .invoice-actions { grid-column: 2; grid-row: 2; }
+}

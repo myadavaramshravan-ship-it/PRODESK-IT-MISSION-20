@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102a43">
+    <title>Nexus Corporate | Invoices</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Nexus Corporate home">
+        <span class="brand-mark">N</span>
+        <span>NEXUS <small>CORPORATE</small></span>
+      </a>
+      <div id="account-actions" class="account-actions" hidden>
+        <span id="welcome"></span>
+        <button id="logout-button" class="button button-quiet" type="button">Sign out</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="auth-panel" class="auth-panel">
+        <div class="intro">
+          <p class="eyebrow">NEXUS BILLING</p>
+          <h1>Invoices, made simple.</h1>
+          <p>Manage your invoices and securely pay online.</p>
+        </div>
+        <div class="auth-card">
+          <div class="tabs" role="tablist" aria-label="Account access">
+            <button id="login-tab" class="tab active" type="button" role="tab" aria-selected="true">Sign in</button>
+            <button id="register-tab" class="tab" type="button" role="tab" aria-selected="false">Create account</button>
+          </div>
+          <form id="auth-form">
+            <label id="name-label" hidden for="name">Full name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="Full name" hidden>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="12" required>
+            <button id="auth-submit" class="button button-primary full-width" type="submit">Sign in</button>
+          </form>
+          <p id="auth-message" class="message" role="status"></p>
+        </div>
+      </section>
+
+      <section id="dashboard" hidden>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">BILLING WORKSPACE</p>
+            <h1>Your invoices</h1>
+            <p class="muted">Create, track, and securely pay invoices.</p>
+          </div>
+          <button id="new-invoice-button" class="button button-primary" type="button">＋ New invoice</button>
+        </div>
+        <div id="notice" class="notice" role="status" hidden></div>
+        <div id="invoice-list" class="invoice-list"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <div class="empty-icon">▤</div>
+          <h2>No invoices yet</h2>
+          <p>Create an invoice to see it here.</p>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="invoice-dialog">
+      <form id="invoice-form" method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">BILLING</p>
+            <h2>Create an invoice</h2>
+          </div>
+          <button id="close-dialog" class="icon-button" type="button" aria-label="Close">×</button>
+        </div>
+        <label for="description">Description</label>
+        <input id="description" name="description" maxlength="500" placeholder="e.g. Consulting services" required>
+        <label for="amount">Amount (USD)</label>
+        <div class="amount-input"><span>$</span><input id="amount" name="amount" type="number" min="0.01" max="1000000" step="0.01" placeholder="0.00" required></div>
+        <label for="due-date">Due date <span class="optional">(optional)</span></label>
+        <input id="due-date" name="dueDate" type="date">
+        <p id="invoice-message" class="message" role="status"></p>
+        <button id="create-invoice-button" class="button button-primary full-width" type="submit">Create invoice</button>
+      </form>
+    </dialog>
+    <footer>© <span id="year"></span> Nexus Corporate <span>·</span> Secure billing</footer>
+  </body>
+</html>
